@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(22, 22, 61)
+}
+.packman__container{
+    position: relative;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+.packman{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.top__part{
+    width: 100%;
+    height: 50%;
+    background-color: yellow;
+    transform-origin: top;
+    border-top-right-radius: 100px;
+    border-top-left-radius: 100px;
+    transform-origin: top;
+    transform: rotate(-30deg);
+    animation: top .5s linear infinite;
+}
+.bottom__part{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: yellow;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    transform: rotate(30deg);
+    transform-origin: bottom;
+    animation: bottom .5s linear infinite;
+}
+.block__dots{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    z-index: -1;
+}
+.block__dots span{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--clr);
+    animation: dots .8s linear infinite calc(.4s * var(--i));
+    transform: translateX(450px);
+}
+
+@keyframes top {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(-30deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(-30deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes bottom {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(30deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(30deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes dots {
+    0%{
+        transform: translateX(450px);
+    }
+    100%{
+        transform: translateX(-100px);
+    }
+}

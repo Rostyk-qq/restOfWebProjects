@@ -1,0 +1,23 @@
+встановлення картинки
+
+це всі потрібні css правила для встановлення
+
+  background-image: url("pngwing.com.png"); - сама картинка
+  background-repeat: no-repeat; - повторюваність
+  background-position: center; - позиція на екрані це як flex-box для елемент (текстового або блоку...)
+  background-size: contain; - це з відступани від оточуючого елементу є cover це шоб повністю накрити
+
+також ми можемо регулювати розмір бекграунду background-size: 10px 10px;
+ми можемо уе робити без правил для image в css
+
+
+це рух для background з background-size: 10px 10px;
+
+@keyframes animatedBack {
+    0%{
+        background-position: 0;
+    }
+    100%{
+        background-position: 20px; чи більше тим швидше
+    }
+}

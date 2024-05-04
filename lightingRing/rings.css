@@ -1,0 +1,44 @@
+body{
+    overflow: hidden;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.some__circle{
+    position: relative;
+    width: 600px;
+    height: 600px;
+    filter: url(#wavy);
+}
+.some__circle::after{
+    content: '';
+    position: absolute;
+    inset: 100px;
+    border-radius: 50%;
+    border: 20px solid #00ffff;
+    box-shadow: 0px 0px 50px #00ffff, inset 0px 0px 0px 50px; 
+    animation: colorFill 6s linear infinite;
+}
+@keyframes colorFill {
+    0%{
+        filter: hue-rotate(0deg);
+        box-shadow: 0px 0px 50px #00ffff, inset 0px 0px  50px #00ffff; 
+    }
+    25%{
+        box-shadow: 0px 0px 100px #00ffff, inset 0px 0px 100px #00ffff; 
+    }
+    50%{
+        box-shadow: 0px 0px 70px #00ffff, inset 0px 0px 70px #00ffff; 
+    }
+    75%{
+        box-shadow: 0px 0px 110px #00ffff, inset 0px 0px 110px #00ffff; 
+    }
+    100%{
+        filter: hue-rotate(360deg);
+        box-shadow: 0px 0px 50px #00ffff, inset 0px 0px 50px #00ffff; 
+    }
+}

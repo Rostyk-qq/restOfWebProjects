@@ -1,0 +1,2 @@
+contenteditable={true} - тобто можемо прописувати щось на сайті
+white-space: pre буде відображатися так як в html

@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    overflow: hidden;
+}
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    font-size: 16px;
+    font-family: cursive;
+    display: grid;
+    place-items: center;
+}
+
+.some__content{
+    white-space: nowrap;
+    overflow-x: hidden;
+    mix-blend-mode: hard-light;
+    color: black;
+    border-right: 2px solid #000;
+    animation: textRun 4s steps(50), blinks 1s step-end infinite normal 4s;
+}
+@keyframes textRun {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+}
+@keyframes blinks {
+    50%{
+        border-color: transparent;
+    }
+    100%{
+        border-color: black;
+    }
+}

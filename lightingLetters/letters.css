@@ -1,0 +1,43 @@
+@import url(reset.css);
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h2{
+    font-size: 6vw;
+    color: #10d4ed;
+    font-family: cursive;
+    text-transform: uppercase;
+}
+h2 span{
+    animation: letters 2s linear infinite;
+    animation-delay: calc(0.2s * var(--i));
+}
+@keyframes letters {
+    0%{
+        filter: hue-rotate(0deg);
+        text-shadow: 
+        0px 0px 10px #10d4ed,
+        0px 0px 30px #10d4ed,
+        0px 0px 50px #10d4ed,
+        0px 0px 70px #10d4ed,
+        0px 0px 100px #10d4ed;
+    }
+    50%,75%{
+        text-shadow: 
+        0px 0px 10px #10d4ed,
+        0px 0px 30px #10d4ed,
+        0px 0px 50px #10d4ed,
+        0px 0px 70px #10d4ed,
+        0px 0px 100px #10d4ed;
+    }
+    100%{
+        filter: hue-rotate(360deg);
+        text-shadow: none;
+        color: transparent;
+    }
+}

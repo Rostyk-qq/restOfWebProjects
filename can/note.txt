@@ -1,0 +1,5 @@
+border-bottom-right-radius: 250px;
+border-bottom-left-radius: 250px;
+
+transform-origin: - це відносно чого
+буде рухатися даний елемент

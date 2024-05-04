@@ -1,0 +1,276 @@
+спочатку ми розглянемо наведення на кнопку
+ вхідний код css:
+
+ body{
+     background: cadetblue;
+     margin: 0;
+     width: 100vw;
+     height: 100vh;
+     display:grid; це вирівнювання яке працює для дочірніх елементів але прописано в батьківському
+     place-items: center;
+ }
+ h1{
+     font-family: sans-serif;
+     position: relative;
+ }
+ h1::after{ тут ми створили декорацію яка буде невидима бо ми пропимали scaleX(0)
+     transform: scaleX(0);
+     transform-origin: right;
+     content: '';
+     position: absolute;
+     left: 0;right: 0;bottom: 0;top: 0;
+     background: indianred;
+     z-index: -1;
+     transition: transform .3s ease;
+ }
+ h1:hover::after{ тут при наведенні ми її бачимо коли забираємо мишку то воно повертається
+     transform: scaleX(1);
+     transform-origin: left;
+ }
+
+ при створені модального вікна ліпше використовувати rgba тоді не потрібно використовувати z-index
+
+---------------------
+visibility:hidden;       <--------> display:none
+opacity: 0;
+---------------------
+чому ми тоді використовуємо visibility а не display тому що його можна анімувати
+
+створення Popup за допомогою css html
+
+розберемося шо ми робомо в html
+
+  <div class="all-content">
+       <a href="#popup" class="btn-open-popup">Відкрити попап</a> - тут ми в силку передаємо наше вікно + Opacity зроблене як бекграунд через rgba
+       тобто ми передали в силку id нашого всього попапу
+       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aspernatur consequatur corporis dicta dolorem dolores eos est explicabo facere fugiat fugit illo illum itaque iure laboriosam laudantium magni maxime minus, modi molestias necessitatibus nihil obcaecati odio porro repellat repellendus, soluta temporibus tenetur velit vero vitae voluptate voluptatem voluptatibus. Autem blanditiis doloribus eum itaque laborum, nemo numquam perferendis quae tempore voluptatem. Blanditiis corporis eius illo mollitia nesciunt nulla officia suscipit. Adipisci aut commodi cum cupiditate ducimus eius, enim esse ex excepturi exercitationem facere fugit incidunt iste natus nostrum nulla porro quaerat, quam quibusdam quos sapiente sequi, voluptatem. Earum, perferendis rem! Ab accusantium aspernatur assumenda atque commodi cumque debitis deserunt dicta dolorem eveniet illum incidunt, inventore, labore laboriosam laborum maxime molestiae mollitia nam neque nobis nostrum perferendis placeat praesentium quasi quidem quis quo tenetur totam veniam voluptatum? Amet blanditiis dicta dolore dolores, est eveniet facere inventore magni minima nemo neque provident quae quia, sequi soluta voluptas voluptatem voluptatibus. Aspernatur cupiditate, distinctio dolorem earum et eum excepturi laborum nemo, quidem voluptate voluptatibus, voluptatum! Architecto corporis earum harum laboriosam natus nemo omnis quidem rem similique ullam? Alias animi at aut dolorem doloribus ea enim error, et impedit laboriosam laudantium magni nam natus nisi obcaecati, odit praesentium quibusdam quis quisquam quo quos rem sapiente sit tempora, tenetur ut velit vitae. Aliquam assumenda atque autem corporis eum harum impedit ipsum, libero magni maiores modi nihil porro possimus quas, quidem recusandae unde voluptate voluptatibus! Aperiam fuga libero reiciendis? Consequuntur dolore dolorum enim inventore pariatur sint tempora vel. Aut cumque distinctio dolore earum eligendi fuga harum illo iure magnam natus quaerat reiciendis, similique, sint soluta temporibus veritatis voluptates! Aperiam culpa deserunt distinctio doloremque earum, id impedit iste pariatur perferendis placeat provident quaerat quam saepe, sapiente sequi suscipit vitae? Earum error est fugiat ipsum necessitatibus possimus quia sit unde! Corporis dolore, ut? Ad aliquid, amet at commodi dignissimos dolore, eius eligendi error et eum laboriosam laborum minus mollitia numquam praesentium quaerat quia quidem quis quos sapiente suscipit tenetur unde ut! A aliquid asperiores deserunt, dicta, dolores eligendi eos id, nam nisi officiis pariatur saepe sit soluta? Alias architecto aspernatur atque autem cumque deserunt ducimus ea est eum hic impedit ipsam iure minus modi necessitatibus neque nihil nobis obcaecati praesentium, quam quia sunt suscipit tempore temporibus tenetur ullam veniam vitae. Ab accusantium, adipisci aliquid amet animi architecto blanditiis commodi, corporis delectus dolorem eligendi eos eveniet expedita facilis fuga hic inventore iusto libero minus modi neque nesciunt nobis nulla obcaecati porro qui quia repellendus sint sit tempore temporibus veritatis vitae voluptatum. Ab amet consequatur cumque delectus deserunt dicta ducimus earum eligendi eos error esse et ex illo, magnam maxime minima, nesciunt numquam quae quidem recusandae sint, temporibus ullam vero. Blanditiis consequatur deleniti ea facere facilis harum iusto magni molestias nostrum perferendis recusandae tenetur, vel, voluptate. Ab architecto asperiores, at consequuntur distinctio dolorem doloribus facilis fugit illum laboriosam laudantium, molestiae, nisi pariatur repudiandae sed! Ad alias aliquid amet distinctio doloremque dolores ea enim esse inventore ipsam neque nostrum perspiciatis porro quaerat quo recusandae, reprehenderit suscipit totam velit voluptas. Animi consequuntur cupiditate debitis fuga id modi necessitatibus, quaerat quod recusandae suscipit. Accusantium alias aliquid amet atque ea eaque eius ex exercitationem id itaque iusto magnam maxime minus nesciunt nulla omnis pariatur porro quasi quibusdam, ratione reiciendis, rem rerum sint suscipit temporibus tenetur veniam voluptatem. Ad aliquam culpa, dolores enim error est et eum ipsa modi natus, nemo numquam omnis quidem quis, quo quos reprehenderit sapiente sunt vel velit! Ad, aliquam aspernatur cupiditate dolor doloribus fugiat illo incidunt inventore laboriosam minus mollitia nemo neque pariatur provident quaerat quasi tempora vel velit vero voluptate. Ab deserunt eos id nobis nostrum nulla voluptatibus. Aliquam animi architecto assumenda blanditiis consequatur dolores doloribus esse fugit id ipsam ipsum iure iusto magnam maxime nam nemo nostrum odio odit porro quidem quis, quisquam repellendus ut. A aliquid consectetur corporis cumque distinctio ducimus earum eius enim ex illo incidunt ipsam ipsum iste laboriosam libero magnam minima molestiae non nulla officia qui quisquam rem sequi tenetur totam ut, voluptas. A corporis deleniti dicta dolore dolores doloribus eaque eligendi est excepturi harum illo impedit iure labore, laboriosam laborum maiores maxime modi molestiae nemo nostrum porro praesentium quae saepe temporibus unde. Aliquid, consectetur corporis eaque fuga harum, id, impedit numquam optio qui quidem reiciendis saepe? Accusamus animi aspernatur assumenda autem commodi doloremque error esse et eveniet incidunt labore molestiae neque, obcaecati odit pariatur perspiciatis sit ullam, voluptate. Aperiam molestias non odio optio, ut veritatis. Accusamus adipisci asperiores autem beatae cum cumque debitis dignissimos dolor dolorum ea est exercitationem expedita facere in ipsum itaque libero maxime minima minus molestiae neque nostrum officia pariatur perspiciatis quasi qui quibusdam, recusandae rem similique sint suscipit tempora temporibus voluptas! Aut autem consectetur dolor ducimus error ex id maiores quisquam reprehenderit sit unde ut vel, voluptatem? Ad alias amet aut cumque eum id magnam optio perspiciatis porro reprehenderit. A alias aliquam aliquid aperiam beatae blanditiis consequuntur debitis dicta dolores ducimus earum eius error eum excepturi exercitationem fugit harum impedit itaque laboriosam libero minima, necessitatibus nobis numquam officia possimus quidem quo quod sequi similique, soluta tempora ullam vel veniam veritatis voluptas voluptate voluptatum! Delectus dolore eum excepturi laudantium minus quas qui quia quisquam ratione. Aliquam asperiores aspernatur autem dignissimos dolores eos, harum id ipsum laborum libero, nihil nisi officia officiis provident quis, quisquam quos repellat repellendus saepe sit sunt tenetur unde velit. Ab dolor doloremque earum id libero modi, perferendis perspiciatis quibusdam, quisquam saepe similique veritatis? Animi beatae cupiditate, delectus enim esse et ex inventore iste iure iusto minima obcaecati, odit pariatur, quas quidem quo temporibus unde veniam veritatis voluptatibus. A animi atque cumque dolore doloribus earum eius eos error est et explicabo harum illo illum in iste laborum maxime nemo nihil nobis nulla numquam odio optio quae quasi, reiciendis repellat sapiente sequi similique sint sit soluta totam unde, veritatis vero voluptate voluptates voluptatibus? Blanditiis ea est ex libero magni modi quas reprehenderit sunt! Accusamus amet aperiam asperiores, dignissimos error eveniet fugit incidunt ipsum iste magnam modi nesciunt nihil nisi placeat praesentium quaerat qui ratione recusandae saepe ullam vitae voluptate voluptatum? Ab ad amet beatae consectetur doloremque eligendi est fugiat iusto labore magnam nemo nesciunt nisi odio quaerat quibusdam sed sit temporibus, tenetur, totam ut veritatis vitae voluptate. A assumenda culpa doloribus enim laboriosam laborum omnis quis unde. Animi explicabo harum numquam quam quo quos sapiente similique tempore ullam voluptates? Asperiores aspernatur atque aut corporis cum cupiditate dolore dolorem ducimus earum eius error eveniet hic ipsam itaque mollitia neque perferendis praesentium quis recusandae reprehenderit rerum similique sint soluta unde velit vitae, voluptates! Mollitia, provident, tempore. Accusantium aliquid animi consectetur, consequatur cupiditate deleniti, distinctio doloribus dolorum eos eum expedita itaque labore minus molestiae nesciunt nihil non nulla officiis quaerat, repellat saepe similique sint soluta velit vero voluptate voluptatem voluptatum. Alias fugiat iste maiores sint veritatis? Fugiat labore libero necessitatibus quasi similique. Ad alias aliquid cupiditate deleniti dignissimos dolore dolores esse, exercitationem harum hic mollitia nihil, sunt ut, veniam voluptate? Ab alias aliquam, amet consectetur deserunt eaque eveniet excepturi illum impedit ipsam iure molestias quam quasi temporibus vel. Commodi deleniti enim eos et eum exercitationem fugiat itaque iure labore molestiae, natus qui repellat sint? Accusamus asperiores consequatur cum cumque dolorum ducimus, ea est illum laborum molestiae mollitia necessitatibus nihil nulla qui quo quod repellat, repellendus sunt veritatis vitae. At facilis fugiat ipsam pariatur veniam, voluptatem! Ab accusamus adipisci consectetur dicta dignissimos dolor ex explicabo facilis inventore labore magni, maxime omnis reiciendis repudiandae rerum sequi veritatis. Cum deleniti id laboriosam nostrum omnis perferendis qui rem totam vel? Alias aut dolore facere ipsum, natus pariatur suscipit tempora voluptatem. A ab accusamus adipisci autem, deleniti dolore est expedita hic itaque iusto magni minus nulla pariatur placeat porro quidem recusandae, rerum totam unde, velit vitae voluptates voluptatum? Ad aliquid consectetur corporis, dolore eligendi, fugit inventore, maiores nesciunt quam similique tempora voluptatem. Accusamus accusantium ad adipisci aliquam atque distinctio dolorem doloremque earum esse impedit ipsa ipsam iste itaque iure libero minus natus necessitatibus nisi odio officia omnis optio porro quam quasi quo ratione reiciendis reprehenderit sed soluta tempora tempore, tenetur ullam vel veniam veritatis voluptas voluptatum. Aperiam dolor dolorem eum eveniet inventore iure magni neque quaerat saepe velit. Asperiores esse ipsum minus nobis officia, rem tempora velit vero voluptate voluptates? Ab accusamus aperiam deleniti dolore enim error et harum laboriosam possimus, quam sit veniam voluptas voluptate. Commodi eveniet hic magnam odio quibusdam! A alias corporis delectus doloribus ducimus ea earum eius est ex incidunt inventore iure laboriosam magni non odio, odit perferendis porro praesentium quibusdam quos rem repellendus reprehenderit rerum suscipit ut veritatis voluptas voluptatibus. Accusantium, animi aperiam, architecto, assumenda deleniti dolore exercitationem inventore nihil odit porro quas velit. Adipisci, aliquid dolor doloremque doloribus eum impedit in molestias nisi, nulla, perferendis perspiciatis quam quia sint veritatis vero. Facilis modi omnis qui, ratione reiciendis similique veniam voluptatem! A ab accusantium delectus distinctio eius et eum explicabo id ipsa, nulla omnis perferendis quam quod, repellat sapiente sunt ullam velit veritatis. Accusantium, ad aspernatur culpa delectus dolores facilis fuga, laudantium magnam mollitia necessitatibus porro possimus repellat, veniam. A commodi, ea, enim est fuga magni nulla pariatur perspiciatis possimus reprehenderit sed sit unde veritatis. Ab accusantium aliquam commodi corporis, culpa dolorum, earum ex explicabo fuga incidunt, iste obcaecati repellendus rerum tenetur ut veritatis vero? Dicta eaque ipsa neque nobis officia perspiciatis quisquam quo, saepe velit vitae. A ab, adipisci amet aspernatur autem delectus dolores, impedit ipsam magni modi non officiis omnis, perferendis praesentium quas quasi qui quos repellendus rerum sit sunt tenetur veniam! Ad animi aut ducimus esse magni, odit quas quod? Ad atque commodi corporis culpa dicta dolore dolorem doloribus eaque, exercitationem facere fuga fugiat ipsa, iusto labore molestias numquam omnis quaerat, qui quisquam quos sapiente vero vitae voluptatem? Cum delectus ipsum magni neque nisi praesentium, quos recusandae tempore ullam unde. Aliquam animi aut deleniti dolor, exercitationem expedita fuga illo impedit inventore ipsa minus, perferendis vel. Alias asperiores at consectetur cum, cupiditate ex explicabo fugit hic ipsa neque nobis, perspiciatis saepe sapiente sint veritatis voluptate voluptatibus! Consequatur illum nesciunt optio, provident quis quisquam recusandae voluptates! A assumenda consectetur consequatur cum ducimus eum ex facilis illo ipsam labore laborum laudantium nemo odit officia repellat sequi suscipit ullam, vero voluptatem voluptatibus! Aliquam aspernatur debitis ea, eius esse labore magni maiores minus recusandae, repudiandae vero voluptate voluptatum. A commodi dicta doloribus eius enim eos, eveniet exercitationem expedita facere harum ipsum iste maiores minima, nam odio possimus quasi quidem quisquam recusandae repellat sequi ullam velit vero. Animi consectetur culpa error fuga id maxime, nam nihil, odit, praesentium sunt suscipit tenetur voluptatem? Ea exercitationem iusto modi provident vel? Cum delectus ea error laboriosam maxime officia porro velit! Accusamus ad asperiores beatae blanditiis commodi ducimus eius excepturi expedita facere labore, laboriosam, minima nihil nobis numquam pariatur, provident quaerat saepe sed similique sit tempore ut vero voluptatibus. Amet aspernatur assumenda dolores ex inventore itaque minus nemo, nisi optio, provident quia, totam. Cumque dolor fuga numquam quam, quibusdam quo quod tenetur veritatis. Ad adipisci cum dolor, earum exercitationem fugiat, in incidunt maiores molestias nemo neque officia perferendis perspiciatis porro possimus quidem quod rem repellendus similique sint soluta tenetur, velit voluptates! Illum libero optio sunt. Accusamus, aliquam aliquid animi aut consequuntur cum dolorem eum, fugiat id, laborum maiores nobis pariatur saepe soluta voluptatibus. Accusamus cumque dolorum explicabo iste magnam molestias optio! Animi commodi fugit itaque laboriosam natus perferendis quam quasi sequi voluptas. Ab alias aliquid animi atque blanditiis consectetur doloremque ducimus esse exercitationem, modi, nam nostrum obcaecati, quod quos sapiente tenetur voluptatibus? Culpa hic laboriosam modi mollitia neque, perferendis ullam voluptate! Ea, ipsam voluptas. Amet ipsa necessitatibus nesciunt non soluta sunt tenetur vel voluptate? Accusamus ad cum ducimus enim error est ipsum mollitia necessitatibus officia, placeat sapiente sequi suscipit unde vel voluptatibus. Accusantium aperiam beatae, blanditiis commodi consectetur dicta eaque earum excepturi inventore iusto molestias nobis non quae quasi qui reiciendis reprehenderit rerum suscipit vel velit! Amet dolores dolorum exercitationem expedita magnam maxime quo repudiandae ullam voluptas. Deserunt eaque eius incidunt minus neque officia quam quo veniam! Labore, modi repellendus!
+       <div id="popup" class="popup"> - ось тут воно присвоєнна ссилка
+           <div class="popup-body">
+               <div class="popup-content">
+                <span class="article">Modal Window</span>
+               <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, consectetur, harum? Asperiores hic iusto magnam nihil odit quidem unde ut voluptas. Atque numquam quae sunt? Esse laborum maxime quo sint!</div>
+               <a href="#" class="button" >Cancel</a>
+           </div>
+           </div>
+       </div>
+   </div>
+
+   сss
+   .popup{ - це батьківський блок нашого модального вікна
+       width: 100%;
+       height: 100%;
+       background-color: rgba(0, 0, 0,.4);
+       display: grid;
+       place-items: center;
+       position: fixed;
+       top: 0;
+       opacity: 0;
+       visibility: hidden;
+  }
+  ми в html записуємо шобуде відкриватися
+  і ми це мусимо вказати в css
+  вот
+  .popup:target{
+      opacity: 1;
+      visibility: visible;
+  }тобто при натисканні воно буде видиме і ми вказуємо через target тобто це ця його ссилка в href
+
+overflow-y: auto; це шоб ми могли робити скрол в обєкті якого не видно контент
+
+також ми можемо достукуватися до елементів отак
+.popup:target .popup-content {}
+
+
+text-transform за дапомогою нього ми можемо збільшувати і зменшувати букви і тд
+
+
+
+position-fixed свариться з overflow тому overflow треба прописувати в body
+також ми можемо disabled кнопку в css pointer-event:none
+
+----------------------------------------------------------------------
+все про keyframes animation
+
+синтаксис
+@keyframes назва{
+    від{ - ліпше вказувати в відсотках
+
+    }
+    до{
+
+    }
+}
+коли ми прописуємо анімації для обєктів то такий порядок запису
+
+animation-name: назва - можна вказувати через кому але приорітет буде в останньої
+animation-duration: скільки часу буде діяти анімація
+animation-timing-function: linear або ease; - задає сценарій
+animation-iteration-count:; - відповідає за повторюваність
+animation-diraction: - як буде рухатись елемент
+animation-play-state: running; - рух анімації
+animation-name: при якійсь дії починає animation з початку
+animation-delay: затримка перед анімацією
+animation-fill-mode: що станеться з обєктом після виконання анімації
+animation: name duration timingfunction iteration diract play-state delay fill-mode
+
+коли ми в js створюємо load тобто event то щось буде в той час коли йде завантаження стрінки
+а onload після завантаження
+
+flex
+text-overflow
+background: liner-gradient(deg, rgba - top, rgba-bottom)
+letter-spacing
+object-fit:
+
+background-filter: blur(px)
+
+insertAdjacentHTML швидший за innerHtml
+
+mouseover !== mouseenter
+closest() - повертає елемент через атрибут
+
+mix-blend-mode: difference; - робить крутий текст
+
+нагадуванн flex-shrink: чим більше число тим більший елемент
+flex-grow: навпаки
+
+flex: 1 1 auto; - містить зразу цих 3 параметра
+flex-grow 
+flex-shrink
+flex-basic це його розміщення в більшості ми пишемо auto
+
+flex: 1 1 auto; також дуже доьре розміщує footer i header
+//////////////
+
+box-shadow можна дюблювати елемент в елементів
+#fff6 - колір зразу з опасіті
+inset це відстань як з margine тільки синтаксис говорить шо треба протисувати з positionами
+transform-style: preserve-3d; перетинає щось
+
+
+/*transform*/
+тільки для block
+для лінійних треба прописувати display:inline-block;
+коли ми вказуємо 1 значення для rotate то він буде обертатися за часовою стрілкою
+
+трансформація 3d
+
+prespective цей ефект відповідає за розміщення розширення картинки або обєкта по екрану
+
+він вираховується за формолою d / d - z 
+d - преспектива
+prespective-origin: center etc
+
+transform3d(x, y, z) z- це до нас зміщення
+
+transform-style:preserve-3d; входить в обєкт
+
+backface-visibility:hidden; тото не буде видно контенту на другій стороні обєкту
+
+
+border-bottom-left-radius: можна регулювати де ти хочеш робити радіус
+
+filter: hue-rotate(0deg); відповідає за колір
+дуже круто використовувати з animations
+
+ми можемо передавати колір через style в html
+тобто ми прописали в html 
+style:'--clr: колір'
+
+і примінити його в css
+
+color: var(--clr) - такий синтаксис
+просто прописавши елементу scale 0.5 він зменшиться в половину
+
+clip-path: polygon(50% 0%, 0% 100%, 100% 100%); - трикутник  
+
+&emsp; пробіл між словами html
+setInterval створює інтервал але потрібно вказати який і для чого
+
+nth-child(2n) - всі які діляться на 2 і тд
+///////////// для swiper
+.swiper__section { 
+    width: 100vw;
+    height: 100vh;
+}
+.swiper__main { 
+    position: fixed;
+    width: 100%;
+    height: 100%;   
+    top: 0;
+    left: 0;
+}
+.wrapper__swiper { 
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+}
+.slide__swiper { 
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+примітка 
+коли ми хочемо зробити відступ від кнопки ми спочатку її маємо прописати display: inline-block;
+i тоді відбудеться displacement
+такий запис каже що воно буде відбуватися в іншу сторону тобо поза межі
+
+user-select: none; - неможна виділяти текст 
+
+так малюється дорожня смуга
+  background: repeating-linear-gradient(transparent 0%, transparent 50%,
+     #fff 50%, #fff 100%);
+     background-size: 20px 200px;
+
+
+маємо такий випадок 
+section .runway::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 10px;
+    height: 100%;
+    background: repeating-linear-gradient(transparent 0%, transparent 50%,
+     #fff 50%, #fff 100%);
+     background-size: 10px 200px;
+     animation: runway 0.5s linear infinite;
+}
+section:active .runway::before{
+    animation: runway 0.25s linear infinite;
+}
+section:active .runway::before{ - це буде робитися тоді коли ми буде hold на цьому обєкті
+
+filter: grayscale() - чорно білі картинки
+
+-webkit-text-stroke: 0.2vw #fff; - обводить букви   
+content: attr(data-text); - для ефекту текст
+background: radial-gradient(#000, transparent);- 1 параметер це середина 
+2 - це наступне після середини
+
+комбінатори
+
+> тільки ті дочірні елементи які є в div якшо в ньлму є інший батьківський елемент 
+то він не буде задіяний
+~ це всі елементи які є поза div
+
+html
+<div>
+    <p>Hello</p>
+    <p>Hello HEllo</p>
+</div>
+    <p>Goood</p>
+    <p>Goood Goood</p>
+css
+div > p{ якшо так то виконається тільки для цього  <p>Hello</p> <p>Hello HEllo</p>
+    background-color: red;
+}
+div ~ p{ якшо так то виконається тільки для цього  <p>Goood</p> <p>Goood Goood</p>
+    background-color: red;
+}
+div + p{ якшо так то виконається тільки для цього  <p>Goood</p> 
+    background-color: red;
+}

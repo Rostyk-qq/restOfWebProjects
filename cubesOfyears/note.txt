@@ -1,0 +1,20 @@
+ми використовуємо в псевдо класах content: attr();
+шоб отримувати текст з html напряму через data-імя
+буде служити як атрибут для тега але для того елемента для якого ми
+пишемо псевдо клас
+
+ще є синтаксис для для додавання кожному елементу затримки при наведені
+
+.wrapper:hover .cube{
+    transform: rotateX(630deg);
+    transition: transform 1s ease; тут мусе бути для всіх
+}
+.wrapper:hover .cube:nth-child(1){
+    transition-delay: 0.2s; тут в межах 1s ставимо delay можна і більше але небуде коректно для анімації
+}
+.wrapper:hover .cube:nth-child(2){
+    transition-delay: 0.5s;
+}
+.wrapper:hover .cube:nth-child(3){
+    transition-delay: 0.7s;
+}

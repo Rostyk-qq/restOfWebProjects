@@ -1,0 +1,7 @@
+inset: -3px; - відступи
+
+.main__element{
+    position: absolute;
+    inset: 10px 10px 20px 20px;
+    background: magenta;
+}

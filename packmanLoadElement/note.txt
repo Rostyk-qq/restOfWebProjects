@@ -1,0 +1,126 @@
+створення анімації packman
+основне правило це розділення 
+на 2 частини 
+це сам packman тобто частина 
+і друга це мячики 
+
+блок який буде містити ці 2 елементи тобто пакмана і цятки які будуть рухатися в нього
+ 
+
+.packman__container{ це контейнер який містить 2 елементи 
+    position: relative; це для блоку там де мячики бо ми будемо абсолютно позиціонуати 
+    width: 400px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+.packman{ - батькіський блок для двох половин тобто верхньої і нижньої 
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.top__part{
+    width: 100%;
+    height: 50%;
+    background-color: yellow;
+    transform-origin: top;
+    border-top-right-radius: 100px; === 2/3 width&height
+    border-top-left-radius: 100px;
+    transform-origin: top; працює відносно фіксації з top 
+    transform: rotate(-30deg); rotate(-30) - проти годинникової стрілки
+    animation: top .5s linear infinite;
+}
+.bottom__part{ тут аналогічно тільки position: absolute; для нижньої частини 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: yellow;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    transform: rotate(30deg);
+    transform-origin: bottom;
+    animation: bottom .5s linear infinite;
+}
+тепер самі крапки
+я використовував 4 
+для кожного прописав кастомний аттрибут можна ше сказати стиль  
+для встановлення animation-delay:; тобто шоб кожен мав свою затримку 
+
+.block__dots{ ми цей блок прописуємо в середині .packman__container
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    z-index: -1;
+    тут я його пртуляю до правої сторони і ставлю під packman width: 90%;
+    для того шоб шаріки заходили всередину packman
+}
+.block__dots span{
+    position: absolute; кожен шарік ми виносимо поза батьківський блок
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--clr); колір через кастомний тег
+    animation: dots .8s linear infinite calc(.4s * var(--i)); так само animation з затримкою 
+    transform: translateX(450px); і початкова позиція для шаріків шоб вони зразу там були 
+    і не створювали брак 
+}
+
+також є приклад з застосуванням backround-size:; тобто малювання безкінечної дороги 
+body{
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: black;
+}
+div{
+  width: 100%;
+  height: 7px;
+  background: linear-gradient(to right, #fff 50%, transparent 50%);
+  background-size: 50px;
+  animation: moveRoad .1s linear infinite;
+}
+@keyframes moveRoad {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+     background-position: 50px;
+  }
+}
+а малювання кола 
+radial-gradient(circle, at 50% 50%, #fff 50%, transparent 50%);
+
+тепер схоже тільки малюємо кола 
+body{
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: black;
+}
+div{
+  width: 100%;
+  height: 60px;
+  background: radial-gradient(circle at 30px 30px висота має бути в 2 більша, #fff 50% це самі мячики , transparent 50% - це бакграунд вони оба мусять бути 50%);
+  background-size: 60px; так само як height 
+  animation: moveRoad .1s linear infinite;
+}
+@keyframes moveRoad {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+     background-position: 60px; також це як висота 
+  }
+}

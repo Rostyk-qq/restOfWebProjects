@@ -1,0 +1,31 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: #000000;
+    overflow: hidden;
+}
+.wavy{
+    font-size: 16px;
+    font-family: cursive;
+    color: white;
+    text-transform: uppercase;
+    -webkit-box-reflect: below 10% linear-gradient(transparent, #fff);
+}
+.wavy span{
+    display: inline-block;
+    animation: letters 1.5s linear infinite;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+@keyframes letters {
+    0% {
+        transform: translateY(0px);
+    }
+    30%{
+        transform: translateY(-15px);
+    }
+    50%, 100%{
+        transform: translateY(0px);
+    }
+}

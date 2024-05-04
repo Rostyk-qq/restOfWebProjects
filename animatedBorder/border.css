@@ -1,0 +1,49 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    background-color: #333;
+}
+.container{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    border: 10px solid #01eff7;
+    overflow: auto;
+}
+.box{
+    position: absolute;
+    inset: 10px;
+    background: linear-gradient(45deg, #01eff7 0%, #01eff7 10%, transparent 10%, transparent 50%,
+    #01eff7 50%, #01eff7 60%, transparent 60%, transparent 100%);
+    background-size: 10px 10px;
+    animation: animatedBack .5s linear infinite;
+}
+.container::after {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    background-color: #333;
+}
+.container::before {
+    content: '';
+    position: absolute;
+    inset: 40px;
+    background-image: url("pngwing.com.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 5px dashed #01eff7;
+    z-index: 1000;
+}
+@keyframes animatedBack {
+    0%{
+        background-position: 0;
+    }
+    100%{
+        background-position: 20px;
+    }
+}

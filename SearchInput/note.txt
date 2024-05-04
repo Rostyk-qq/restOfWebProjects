@@ -1,0 +1,32 @@
+.block__content:not([class="content__input"]){
+    тобто застосовуємо стилі для всіх крім input (також ми можемо це використовувати для виділення і колим 
+    ми в block__content пропишемо стилі окремо то вони для цього елементу не зададуться бо ми прописали not)
+    зате ті шо тут ми пропишемо зададуться іменно для цього елементу 
+}
+
+опис коду 
+
+const input = document.querySelector('.input');
+const list = document.querySelectorAll('.list .list__item'); стоврюємо колекцію з всіх listElement
+
+input.addEventListener('input', e => { при кожній зміні input ми викликаємо callback
+    const inputText = e.target.value.trim(); трімимо value тобто те що ми написали 
+
+    if(inputText.length !== 0 || inputText !== ''){ провіряємо його на довжину і на пустість 
+        list.forEach(listElement => { проходимося по колекції 
+            if(listElement.textContent.search(inputText) !== -1){ і якшо ми в нашій колекції нахидимо однокові символи в слові(реченні)
+                listElement.classList.remove('hide') то забираємо з цього listElement класс display: none;
+            }
+            else{
+                listElement.classList.add('hide') якшо нема елементу то додаємо display: none;
+            }
+        })
+    }
+    else{
+        list.forEach(listElement => { якшо пустий input то показуємо весь список users
+            if(listElement.classList.contains('hide')){ провірка якшо містить класс hide 
+                listElement.classList.remove('hide') і тоді його забираємо 
+            }
+        })
+    }
+})
